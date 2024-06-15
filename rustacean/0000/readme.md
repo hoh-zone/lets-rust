@@ -10,6 +10,10 @@
 - 多年web2开发经验，对`Rust` 特别感兴趣,xxx
 - 联系方式: tg: `https://t.me/xxxxx` ,QQ:`xxx`
 
+
+# 学习笔记
+001[安装rust](notes/001_install.md)
+
 ## 挑战
 -> 文件的路径名不允许中文和空格（部分操作系统不支持）
 ##   `001`  install
