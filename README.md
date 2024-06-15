@@ -29,7 +29,7 @@ lets move rust 让我们移动到`rust`编程语言, 是 `lets move` 联合 `Sui
 
 | 任务                                 | 名称         | 人民币等值Token | 说明            |
 |:-----------------------------------|------------|:----------:|:--------------|
-| [task 1](challenge/001.install.md) | hello Rust |    ￥10     | 完成rust和开发环境安装 |
+| [task 1](challenge/001.install.md) | hello Rust |     *      | 完成rust和开发环境安装 |
 
 
 ## 学习资料
