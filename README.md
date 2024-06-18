@@ -13,9 +13,8 @@ lets move rust 让我们移动到`rust`编程语言, 是 `lets move` 联合 `Sui
 
 
 ## 社区 & 问答
-- [move中文 TG](https://t.me/move_cn)
-- [Sui中文 TG](https://t.me/sui_dev_cn)
-- QQ群: 79489587
+- [lets rust TG](https://t.me/letsrust)
+- QQ群: 827637782
 
 ## 如何完成任务并获取奖励
 - 在自己`github id`目录的 readme.md 对应的任务列表填写完成信息
