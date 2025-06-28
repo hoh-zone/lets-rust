@@ -1,0 +1,10 @@
+type: marketplace
+title: lets-rust
+language: English
+programming_language: Rust
+content:
+  - lesson1
+additional_files:
+  - name: Cargo.toml
+  - name: Cargo.lock
+yaml_version: 3
