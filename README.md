@@ -2,6 +2,11 @@
 
 这是一份详细的 Rust 编程语言中文教程，从基础到高级，深入浅出地讲解 Rust 的核心概念和实战技巧。
 
+## 社区 & 问答
+- [move中文 TG](https://t.me/move_cn)
+- [Sui中文 TG](https://t.me/sui_dev_cn)
+- QQ群: 79489587
+
 ## 目录
 
 ### 入门篇
