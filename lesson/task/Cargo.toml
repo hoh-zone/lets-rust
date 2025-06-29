@@ -1,0 +1,45 @@
+[package]
+name = "task1"
+version = "0.1.0"
+edition = "2021"
+default-run = "task1"
+
+[dependencies]
+unicode-segmentation = { version = "1.10", optional = true }
+
+[features]
+default = []
+grapheme = ["unicode-segmentation"]
+
+# 二进制文件定义
+[[bin]]
+name = "project_management"
+path = "src/bin/project_management.rs"
+
+[[bin]]
+name = "docs_and_testing"
+path = "src/bin/docs_and_testing.rs"
+
+[[bin]]
+name = "closures"
+path = "src/bin/closures.rs"
+
+[[bin]]
+name = "iterators"
+path = "src/bin/iterators.rs"
+
+[[bin]]
+name = "smart_pointers"
+path = "src/bin/smart_pointers.rs"
+
+[[bin]]
+name = "common_smart_pointers"
+path = "src/bin/common_smart_pointers.rs"
+
+[[bin]]
+name = "concurrency"
+path = "src/bin/concurrency.rs"
+
+[[bin]]
+name = "unsafe_rust"
+path = "src/bin/unsafe_rust.rs"
