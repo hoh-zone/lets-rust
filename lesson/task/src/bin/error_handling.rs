@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第12章：错误处理
 // Rust 提供了强大的错误处理机制，包括 panic! 和 Result 类型
 

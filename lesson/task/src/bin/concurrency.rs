@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第19章：并发编程
 // 演示 Rust 中的线程、消息传递、共享状态等并发概念
 

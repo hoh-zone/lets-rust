@@ -1,4 +1,4 @@
-use task1::sum;
+use task::sum;
 
 // TODO: replace this with an actual test
 #[test]
