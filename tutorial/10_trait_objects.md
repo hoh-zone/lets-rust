@@ -399,22 +399,40 @@ fn benchmark() {
     
     // 动态分发的开销
     let start = Instant::now();
-    let mut sum = 0;
+    let mut sum: i32 = 0;
     for _ in 0..1000000 {
         for computer in &computers {
             sum += computer.compute(10);
         }
     }
     println!("动态分发时间: {:?}", start.elapsed());
+    println!("动态分发结果 (i32): {}", sum);
     
     // 静态分发对比
     let adder = Adder(5);
     let start = Instant::now();
-    let mut sum = 0;
+    let mut sum: i64 = 0;
     for _ in 0..1000000 {
-        sum += adder.compute(10);
+        sum += adder.compute(10); // 隐式转换 i32 到 i64
     }
     println!("静态分发时间: {:?}", start.elapsed());
+    println!("静态分发结果 (i32): {}", sum);
+
+    // 动态分发大循环 (i64)，验证无溢出
+    let computers: Vec<Box<dyn Compute>> = vec![Box::new(Multiplier(100))];
+    let start = Instant::now();
+    let mut sum: i64 = 0;
+    for _ in 0..100_000_000 {
+        for computer in &computers {
+            sum += computer.compute(1000) as i64; // 显式转换以匹配 i64
+        }
+    }
+    println!("动态分发大循环时间 (i64): {:?}", start.elapsed());
+    println!("动态分发大循环结果 (i64): {}", sum);
+}
+
+fn main() {
+    benchmark();
 }
 ```
 
@@ -590,4 +608,4 @@ impl ServiceManager {
    - O：通过 `Box<dyn Trait>` 获得所有权
    - 特征对象遵循与普通引用相同的借用规则
 
-特征对象是 Rust 中实现运行时多态的重要机制，虽然有一定的性能开销，但在需要处理异构集合时非常有用。下一章我们将学习 Rust 标准库中的常用特征。 
+特征对象是 Rust 中实现运行时多态的重要机制，虽然有一定的性能开销，但在需要处理异构集合时非常有用。下一章我们将学习 Rust 标准库中的常用特征。
