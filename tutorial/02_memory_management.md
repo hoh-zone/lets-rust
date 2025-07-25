@@ -193,13 +193,16 @@ fn main() {
     
     // 规则2：只能有一个可变引用
     let r3 = &mut s;
+    // let r4 = &mut s;  // 错误，不能同时存在多个可变引用
     r3.push_str(" world");
     println!("{}", r3);
     
     // 规则3：不可变引用和可变引用不能同时存在
-    // let r4 = &s;     // 错误！
-    // println!("{}", r4);
-}
+    let r4 = &s; 
+    println!("{}", r4);
+    //错误，此时再次引用r3，会导致在r3还没有失效时存在r4。违背了规则3；
+    // println!("{}", r3);  
+效
 ```
 
 ### 原始指针（Raw Pointers）
