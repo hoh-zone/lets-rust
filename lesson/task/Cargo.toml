@@ -1,8 +1,8 @@
 [package]
-name = "task1"
+name = "task"
 version = "0.1.0"
 edition = "2021"
-default-run = "task1"
+default-run = "task"
 
 [dependencies]
 unicode-segmentation = { version = "1.10", optional = true }

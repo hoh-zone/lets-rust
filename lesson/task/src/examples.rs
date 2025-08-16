@@ -1,6 +1,10 @@
 // Rust 基础教程 - 示例代码集合
 // 包含所有章节的可运行示例
 
+// 允许未使用的代码，因为这是教学示例
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use std::collections::HashMap;
 
 // ============================================================================
@@ -1115,4 +1119,119 @@ pub fn unsafe_rust() {
     println!("  • 最小化 unsafe 代码");
     println!("  • 在安全抽象中包装");
     println!("  • 仔细验证内存安全");
+}
+
+/// 第21章：宏系统示例
+pub fn macros() {
+    println!("🎭 第21章：宏系统");
+    println!("=====================================");
+    println!("💡 运行完整示例：cargo run --bin macros");
+    
+    // 简单演示一些宏的概念
+    macro_rules! say_hello {
+        () => {
+            println!("  Hello from a simple macro!");
+        };
+        ($name:expr) => {
+            println!("  Hello, {}!", $name);
+        };
+    }
+    
+    println!("\n🎯 声明宏演示：");
+    say_hello!();
+    say_hello!("Rust");
+    
+    // vec! 宏演示
+    let v = vec![1, 2, 3, 4, 5];
+    println!("  vec! 宏创建的向量: {:?}", v);
+    
+    // println! 宏演示
+    println!("  println! 宏支持格式化：{} + {} = {}", 2, 3, 2 + 3);
+    
+    // 自定义重复模式宏
+    macro_rules! create_function {
+        ($func_name:ident) => {
+            fn $func_name() {
+                println!("  函数 {} 被调用了", stringify!($func_name));
+            }
+        };
+    }
+    
+    create_function!(foo);
+    create_function!(bar);
+    
+    println!("\n🔧 宏生成的函数：");
+    foo();
+    bar();
+    
+    println!("\n📚 宏系统的特点：");
+    println!("  • 编译时代码生成");
+    println!("  • 模式匹配语法");
+    println!("  • 元编程能力");
+    println!("  • 代码复用和简化");
+    println!("  • 卫生宏系统");
+    
+    println!("\n🎯 宏的类型：");
+    println!("  • 声明宏 (macro_rules!)");
+    println!("  • 过程宏 (proc_macro)");
+    println!("  • 派生宏 (#[derive])");
+    println!("  • 属性宏 (#[attribute])");
+}
+
+/// 第22章：过程宏示例
+pub fn procedural_macros() {
+    println!("🔮 第22章：过程宏深入解析");
+    println!("=====================================");
+    println!("💡 运行完整示例：cargo run --bin procedural_macros");
+    
+    // 模拟过程宏的效果
+    #[derive(Debug)]
+    struct ExampleStruct {
+        name: String,
+        value: i32,
+    }
+    
+    let example = ExampleStruct {
+        name: "Test".to_string(),
+        value: 42,
+    };
+    
+    println!("\n🎯 派生宏演示：");
+    println!("  #[derive(Debug)] 宏自动实现了 Debug trait");
+    println!("  示例结构体: {:?}", example);
+    
+    // 模拟 Builder 模式
+    println!("\n🏗️ Builder 模式概念：");
+    println!("  // 使用派生宏自动生成 Builder");
+    println!("  #[derive(Builder)]");
+    println!("  struct User {{");
+    println!("      name: String,");
+    println!("      email: String,");
+    println!("  }}");
+    println!("  // 生成：UserBuilder, name(), email(), build()");
+    
+    println!("\n🔧 属性宏概念：");
+    println!("  // 给函数添加计时功能");
+    println!("  #[timing]");
+    println!("  fn expensive_function() {{ ... }}");
+    println!("  // 自动添加性能监控代码");
+    
+    println!("\n📚 过程宏的类型：");
+    println!("  • 派生宏 (Derive Macros): #[derive(MyTrait)]");
+    println!("  • 属性宏 (Attribute Macros): #[my_attribute]");
+    println!("  • 函数式宏 (Function-like Macros): my_macro!()");
+    
+    println!("\n🔧 过程宏的特点：");
+    println!("  • 操作 TokenStream");
+    println!("  • 生成任意复杂代码");
+    println!("  • 需要独立的 proc-macro crate");
+    println!("  • 比声明宏更强大");
+    println!("  • 使用 syn、quote、proc-macro2 库");
+    
+    println!("\n🎯 应用场景：");
+    println!("  • ORM 框架 (如 Diesel)");
+    println!("  • 序列化库 (如 Serde)");
+    println!("  • Web 框架 (如 Actix)");
+    println!("  • 自定义 DSL");
+    println!("  • 代码生成工具");
 } 

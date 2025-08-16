@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第8章：泛型与 trait
 // 泛型允许我们编写灵活、可重用的代码，trait 定义共享的行为
 

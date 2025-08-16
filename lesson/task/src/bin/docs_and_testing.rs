@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第14章：文档与测试
 // 演示 Rust 的文档注释、文档测试和单元测试
 

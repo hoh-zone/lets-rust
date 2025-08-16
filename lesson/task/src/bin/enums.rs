@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第7章：枚举
 // 枚举是一种定义类型的方式，该类型可以是几个可能的变体之一
 

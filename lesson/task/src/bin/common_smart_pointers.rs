@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第18章：常用智能指针
 // 演示 Cow、Weak、Pin 等常用智能指针
 

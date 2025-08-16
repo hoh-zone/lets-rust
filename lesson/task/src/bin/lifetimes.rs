@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第9章：生命周期与标注示例
 // 运行命令：cargo run --bin lifetimes
 

@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第6章：常用类型解析示例
 // 使用命令：cargo run --bin common_types
 
@@ -57,7 +62,7 @@ fn create_vectors() {
     let v2 = vec![1, 2, 3];
     
     // 创建具有初始容量的 vector
-    let mut v3: Vec<i32> = Vec::with_capacity(10);
+    let v3: Vec<i32> = Vec::with_capacity(10);
     
     // 使用迭代器创建
     let v4: Vec<i32> = (0..5).collect();
@@ -231,7 +236,7 @@ fn string_demo() {
 
 fn create_strings() {
     // 创建空字符串
-    let mut s1 = String::new();
+    let s1 = String::new();
     
     // 从字符串字面量创建
     let s2 = "initial contents".to_string();
@@ -310,7 +315,7 @@ fn iterate_strings() {
 }
 
 fn string_methods() {
-    let mut s = String::from("  Hello, Rust!  ");
+    let s = String::from("  Hello, Rust!  ");
     
     // 去除空白
     let trimmed = s.trim();

@@ -25,7 +25,7 @@ Text of your hint
 
 - You may need to refer your learners to a particular lesson,
 task, or file. To achieve this, you can use the in-course links.
-Specify the path using the `[link_text](course://lesson1/task1/file1)` format.
+Specify the path using the `[link_text](course://lesson/task/file1)` format.
 
 - You can insert shortcuts in the task description.
 While **task.html/task.md** is open, right-click anywhere
@@ -45,4 +45,4 @@ Then press &shortcut:EditorPaste; to insert the link where appropriate.
 For example, a [link to the "contains" method](psi_element://java.lang.String#contains).
 
 - You can add link to file using **full path** like this:
-  `[file_link](file://lesson1/task1/file.txt)`.
+  `[file_link](file://lesson/task/file.txt)`.

@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第10章：trait 对象
 // trait 对象允许在运行时进行动态分发，实现多态
 

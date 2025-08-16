@@ -2,7 +2,7 @@
 resolver = "2"
 
 members = [
-    "lesson1/*/",
+    "lesson/*/",
 ]
 
 exclude = [

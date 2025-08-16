@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第17章：智能指针
 // 演示 Rust 中的智能指针：Box、Rc、RefCell、Arc、Mutex等
 

@@ -1,3 +1,8 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第16章：迭代器
 // 演示 Rust 中迭代器的使用、适配器和消费者
 
