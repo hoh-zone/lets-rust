@@ -3,7 +3,7 @@ title: lets-rust
 language: English
 programming_language: Rust
 content:
-  - lesson1
+  - lesson
 additional_files:
   - name: Cargo.toml
   - name: Cargo.lock

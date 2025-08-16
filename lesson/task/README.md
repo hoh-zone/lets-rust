@@ -307,7 +307,7 @@ cargo test ownership
 ## 🔧 项目结构
 
 ```
-lesson1/task1/
+lesson/task/
 ├── src/
 │   ├── main.rs              # 🎯 主程序 - 交互式菜单
 │   ├── lib.rs               # 📚 库文件

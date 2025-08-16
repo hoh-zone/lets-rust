@@ -104,7 +104,7 @@ cat src/bin/procedural_macros.rs
 
 ### 文件结构
 ```
-lesson1/task1/
+lesson/task/
 ├── src/
 │   ├── bin/
 │   │   ├── macros.rs                 # 第21章独立示例
