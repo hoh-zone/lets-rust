@@ -722,88 +722,85 @@ pub fn state_machine(input: TokenStream) -> TokenStream {
 ```rust
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{parse_macro_input, DeriveInput, Data, Fields};
+use syn::{parse_macro_input, ItemFn, Signature, FnArg, ReturnType, Type};
 
-#[proc_macro_derive(OwnershipAnalysis)]
-pub fn ownership_analysis_derive(input: TokenStream) -> TokenStream {
-    let input = parse_macro_input!(input as DeriveInput);
-    let name = &input.ident;
+fn analyze_borrowing(sig: &Signature) -> Vec<String> {
+    let mut analysis = Vec::new();
     
-    let fields = match &input.data {
-        Data::Struct(data_struct) => match &data_struct.fields {
-            Fields::Named(fields) => &fields.named,
-            _ => return TokenStream::new(),
-        },
-        _ => return TokenStream::new(),
-    };
-    
-    // 生成不同权限的访问方法
-    let read_methods = fields.iter().map(|field| {
-        let field_name = &field.ident;
-        let field_type = &field.ty;
-        let method_name = syn::Ident::new(&format!("read_{}", field_name.as_ref().unwrap()), field_name.span());
-        
-        quote! {
-            // R: 只读访问
-            pub fn #method_name(&self) -> &#field_type {
-                &self.#field_name
+    for (i, input) in sig.inputs.iter().enumerate() {
+        match input {
+            FnArg::Typed(pat_type) => {
+                match &*pat_type.ty {
+                    Type::Reference(type_ref) => {
+                        let mutability = if type_ref.mutability.is_some() {
+                            "可变"
+                        } else {
+                            "不可变"
+                        };
+                        analysis.push(format!("参数 {}: {} 借用", i, mutability));
+                    }
+                    _ => {
+                        analysis.push(format!("参数 {}: 所有权转移", i));
+                    }
+                }
             }
+            FnArg::Receiver(receiver) => {
+                if receiver.reference.is_some() {
+                    let mutability = if receiver.mutability.is_some() {
+                        "可变"
+                    } else {
+                        "不可变"
+                    };
+                    analysis.push(format!("self: {} 借用", mutability));
+                } else {
+                    analysis.push("self: 所有权转移".to_string());
+                }
+            }
+        }
+    }
+    
+    // 分析返回类型
+    match &sig.output {
+        ReturnType::Type(_, return_type) => {
+            match &**return_type {
+                Type::Reference(_) => {
+                    analysis.push("返回: 借用引用".to_string());
+                }
+                _ => {
+                    analysis.push("返回: 所有权转移".to_string());
+                }
+            }
+        }
+        ReturnType::Default => {
+            analysis.push("返回: ()".to_string());
+        }
+    }
+    
+    analysis
+}
+
+#[proc_macro_attribute]
+pub fn analyze_ownership(_args: TokenStream, input: TokenStream) -> TokenStream {
+    let input_fn = parse_macro_input!(input as ItemFn);
+    let fn_name = &input_fn.sig.ident;
+    let analysis = analyze_borrowing(&input_fn.sig);
+    
+    let analysis_items = analysis.iter().map(|item| {
+        quote! {
+            println!("  {}", #item);
         }
     });
     
-    let write_methods = fields.iter().map(|field| {
-        let field_name = &field.ident;
-        let field_type = &field.ty;
-        let method_name = syn::Ident::new(&format!("write_{}", field_name.as_ref().unwrap()), field_name.span());
-        
-        quote! {
-            // W: 可写访问
-            pub fn #method_name(&mut self) -> &mut #field_type {
-                &mut self.#field_name
-            }
-        }
-    });
-    
-    let own_methods = fields.iter().map(|field| {
-        let field_name = &field.ident;
-        let field_type = &field.ty;
-        let take_method = syn::Ident::new(&format!("take_{}", field_name.as_ref().unwrap()), field_name.span());
-        let replace_method = syn::Ident::new(&format!("replace_{}", field_name.as_ref().unwrap()), field_name.span());
-        
-        quote! {
-            // O: 获取所有权（需要 Default）
-            pub fn #take_method(&mut self) -> #field_type 
-            where 
-                #field_type: Default 
-            {
-                std::mem::take(&mut self.#field_name)
-            }
-            
-            // O: 替换并返回旧值
-            pub fn #replace_method(&mut self, new_value: #field_type) -> #field_type {
-                std::mem::replace(&mut self.#field_name, new_value)
-            }
-        }
-    });
+    // 生成分析函数名
+    let analyze_fn_name = syn::Ident::new(&format!("analyze_{}", fn_name), fn_name.span());
     
     let expanded = quote! {
-        impl #name {
-            #(#read_methods)*
-            #(#write_methods)*
-            #(#own_methods)*
-            
-            // 整体克隆（如果所有字段都实现了 Clone）
-            pub fn clone_all(&self) -> Self 
-            where 
-                Self: Clone 
-            {
-                self.clone()
-            }
-            
-            // 消费自身，返回所有字段
-            pub fn into_parts(self) -> (#(#field_type),*) {
-                (self.#field_name),*
-            }
+        #input_fn
+        
+        // 生成分析函数
+        pub fn #analyze_fn_name() {
+            println!("函数 {} 的所有权分析:", stringify!(#fn_name));
+            #(#analysis_items)*
         }
     };
     
@@ -831,6 +828,11 @@ pub fn safe_pointer(_args: TokenStream, input: TokenStream) -> TokenStream {
     
     let field_types: Vec<_> = fields.iter().map(|f| &f.ty).collect();
     let field_names: Vec<_> = fields.iter().map(|f| f.ident.as_ref().unwrap()).collect();
+    
+    // 生成可变访问器方法名
+    let mut_method_names: Vec<_> = field_names.iter().map(|name| {
+        syn::Ident::new(&format!("{}_mut", name), name.span())
+    }).collect();
     
     let expanded = quote! {
         #input_struct
@@ -861,10 +863,8 @@ pub fn safe_pointer(_args: TokenStream, input: TokenStream) -> TokenStream {
                     &self.inner.#field_names
                 }
                 
-                paste::paste! {
-                    pub fn [<#field_names _mut>](&mut self) -> &mut #field_types {
-                        &mut self.inner.#field_names
-                    }
+                pub fn #mut_method_names(&mut self) -> &mut #field_types {
+                    &mut self.inner.#field_names
                 }
             )*
         }

@@ -1,7 +1,12 @@
+// 教学示例 - 允许未使用的代码
+#![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_imports)]
+
 // 第2章：程序与内存管理示例
 // 使用命令：cargo run --bin memory_management
 
-use task1::examples;
+use task::examples;
 
 fn main() {
     println!("🦀 Rust 基础教程 - 第2章：程序与内存管理");

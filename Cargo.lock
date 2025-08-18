@@ -3,7 +3,7 @@
 version = 4
 
 [[package]]
-name = "task1"
+name = "task"
 version = "0.1.0"
 dependencies = [
  "unicode-segmentation",

@@ -30,7 +30,7 @@ echo "   • q: 退出程序"
 echo ""
 
 echo "💡 使用方法："
-echo "   cd lesson1/task1"
+echo "   cd lesson/task"
 echo "   cargo run"
 echo ""
 
