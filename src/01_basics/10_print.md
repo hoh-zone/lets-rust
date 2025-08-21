@@ -139,5 +139,3 @@ Debug trait 用于自定义类型的调试输出，常与 `{:?}` 或 `{:#?}` 结
 - **错误处理**：打印到 stdout/stderr 是阻塞的，如果 IO 失败会 panic。
 - **替代**：对于复杂日志，使用 log 或 tracing crate。
 - **实践**：在 RustRover 或命令行中使用 `cargo run` 测试这些示例，观察输出差异。
-
-这些是 Rust 输出和调试的基础，建议结合变量和结构体章节练习。更多细节可参考 Rust 官方书籍：https://doc.rust-lang.org/book/。如果需要高级主题如格式化 trait 或日志，请进一步询问！

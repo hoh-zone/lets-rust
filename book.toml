@@ -2,5 +2,5 @@
 authors = ["Alan"]
 language = "en"
 multilingual = false
-src = "tutorial"
+src = "src"
 title = "Lets Rust"

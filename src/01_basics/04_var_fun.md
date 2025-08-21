@@ -176,4 +176,4 @@ Rust 函数使用 `fn` 关键字定义，使用 snake_case 命名（小写下划
   }
   ```
 
-更多细节可参考 Rust 官方书籍：https://doc.rust-lang.org/book/。如果需要高级主题如所有权或模式匹配，请进一步询问！
+更多细节可参考 Rust 官方书籍：https://doc.rust-lang.org/book 

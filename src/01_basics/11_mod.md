@@ -182,4 +182,3 @@ pub use crate::garden::vegetables::Asparagus;  // 重新导出
 - **错误处理**：路径错误（如未找到模块）会在编译时报错。
 
 这些是 Rust `mod` 语法的基础，建议通过 `cargo new` 创建项目测试示例。
-更多细节可参考 Rust 官方书籍的模块章节。如果需要高级主题如 trait 或泛型，请进一步询问！

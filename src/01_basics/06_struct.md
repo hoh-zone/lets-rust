@@ -178,4 +178,3 @@
 - **调试**：使用 `#[derive(Debug)]` 注解结构体，以启用 `{:?}` 打印。
 - **实践**：通过 `cargo new` 创建项目，在 `main.rs` 中测试这些示例。
 
-更多细节可参考 Rust 官方书籍：https://doc.rust-lang.org/book/。如果需要高级主题如 trait 或枚举，请进一步询问！

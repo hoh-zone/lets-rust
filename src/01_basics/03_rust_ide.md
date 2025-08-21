@@ -164,4 +164,4 @@ RustRover 支持免费试用（非商业用途），可以从官方下载页面�
 - 键盘快捷键：学习默认快捷键，或自定义（Ctrl+Alt+S > Keymap）。
 - 分享代码：选中代码，右键 > Rust | Share in Playground，生成 GitHub Gist。
 
-如果遇到问题，可以参考官方文档：https://www.jetbrains.com/help/rust/。首次使用时，IDE 会引导你学习基本功能。享受 Rust 开发！
+如果遇到问题，可以参考官方文档：https://www.jetbrains.com/help/rust 首次使用时，IDE 会引导你学习基本功能。享受 Rust 开发！

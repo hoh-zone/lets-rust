@@ -179,4 +179,3 @@ enum Option<T> {
 - **穷尽性**：match 强制覆盖所有变体，增强安全性。
 - **实践**：枚举常与 match 结合用于错误处理（如 Result<T, E>）、状态机或配置选项。
 
-更多细节可参考 Rust 官方书籍：https://doc.rust-lang.org/book/。如果需要高级主题如 trait 或泛型，请进一步询问！
