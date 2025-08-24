@@ -2,8 +2,6 @@
 
 Rust 中的 `HashMap<K, V>` 是标准库 `std::collections` 中的哈希映射类型，用于存储键值对。它使用哈希函数将键映射到值，支持快速查找、插入和删除。`HashMap` 要求键类型 `K` 实现 `Hash` 和 `Eq` trait，值 `V` 可以是任意类型。`HashMap` 是无序的（不像 `BTreeMap` 有序），适合需要 O(1) 平均操作的场景。Rust 的 HashMap 是安全的，默认使用 SipHash 以防哈希洪水攻击。
 
-本教程从基础开始，逐步深入，包含代码示例和解释。假设你已熟悉 Rust 的基本语法（如所有权、借用）和集合（如 Vec）。每个示例后，我会解释关键点。如果你有 Rust 环境，可以复制代码运行测试。教程基于 Rust 1.80+（截至 2025 年，HashMap 核心未变，但有性能优化如更快的哈希构建器）。
-
 ## 1. HashMap 简介
 
 - **导入**：`use std::collections::HashMap;`
