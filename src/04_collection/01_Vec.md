@@ -18,7 +18,6 @@ Rust 的 `std::vec::Vec<T>` 类型是标准库 `std::vec` 模块（以及相关 
 - **跨平台详解**：分配用 malloc (Unix)/HeapAlloc (Windows)；对齐 T align_of；测试差异用 CI，焦点大 Vec 分配失败于低内存 OS。
 - **性能详析**：push amortized O(1)，insert O(n)；reserve O(1) 分配；drain O(1) 迭代；大 T memmove 慢。基准用 criterion，profile 用 heaptrack 内存高峰。
 - **常见用案扩展**：缓冲区（I/O）、栈模拟（push/pop）、队列（VecDeque）、游戏向量（物理模拟）、测试数据生成。
-- **超级扩展概念**：与 std::alloc::alloc 集成自定义页；与 std::panic::catch_unwind 安全 drop 大 Vec；错误 panic 于越界；与 smallvec::SmallVec 堆栈优化；高性能用 arrayvec::ArrayVec 固定；与 tracing::span Vec 日志；历史：从 1.0 Vec 到 1.60 Vec::spare_capacity_mut 优化。
 
 ## 2. 创建 Vec：Vec::new 和 vec!
 

@@ -13,7 +13,7 @@
   - [变量.方法](01_basics/04_var_fun.md) 
   - [条件语句](01_basics/05_condition.md) 
   - [结构体](01_basics/06_struct.md) 
-  - [emum](01_basics/07_emum.md) 
+  - [enum](01_basics/07_emum.md) 
   - [注释](01_basics/08_comments.md) 
   - [循环语句](01_basics/09_loop.md)
   - [打印方法](01_basics/10_print.md)

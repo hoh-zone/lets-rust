@@ -1,9 +1,7 @@
-# Rust std::fmt 模块教程
+# std::fmt 模块
 
 Rust 的 `std::fmt` 模块提供了格式化和打印字符串的工具，包括 trait（如 Display 和 Debug）和宏（如 format! 和 write!）。它是 Rust 打印和字符串操作的核心，用于自定义类型的格式化输出。`std::fmt` 强调 trait 实现，确保类型安全和灵活性，而不依赖运行时反射。模块支持占位符、精度、对齐等高级格式化选项。
 
-本教程从基础开始，逐步深入，包含代码示例和解释。
-假设你已熟悉 Rust 的基本语法（如 trait 和 impl）。
 
 ## 1. std::fmt 简介
 
