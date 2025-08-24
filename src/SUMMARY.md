@@ -48,7 +48,14 @@
 
 ### 常用集合
 - [集合]()
-  - [HashMap](04_collection/01_hashMap.md)
+  - [Vec](04_collection/01_Vec.md)
+  - [VecDeque](04_collection/02_VecDeque.md)
+  - [LikedList](04_collection/03_LinkedList.md)
+  - [HashMap](04_collection/04_HashMap.md)
+  - [BTreeMap](04_collection/05_BTreeMap.md)
+  - [HashSet](04_collection/06_HashSet.md)
+  - [BTreeMap](04_collection/07_BTreeSet.md)
+  - [BinaryHeap](04_collection/08_BinaryHeap.md)
 
 
 ### 并发
