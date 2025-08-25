@@ -2,7 +2,7 @@
 
 Rust 的 `std::boxed::Box<T>` 类型是标准库 `std::boxed` 模块（以及相关 `std::alloc` 的分配支持）的核心组成部分，提供堆分配的智能指针，用于动态大小类型、递归结构和所有权转移的内存管理，支持 O(1) 分配/释放的单所有权堆盒。
 
-## 1. std::boxed::Box 简介（超级扩展）
+## 1. std::boxed::Box 简介
 
 - **导入和高级结构**：除了基本导入 `use std::boxed::Box;`，高级用法可包括 `use std::alloc::Layout;` 以自定义布局、`use std::ptr::NonNull;` 以 raw 指针和 `use std::pin::Pin;` 以固定 Box。模块的内部结构包括 Box 的 NonNull<T> 指针（分配 + 布局）和 Deref 的 fat pointer 支持 ?Sized T（如 trait 对象 vtable）。
     - **类型详解**：
@@ -17,7 +17,7 @@ Rust 的 `std::boxed::Box<T>` 类型是标准库 `std::boxed` 模块（以及相
 - **常见用例扩展**：递归结构（链表/tree）、trait 对象（动态分发）、堆逃逸（闭包捕获）、游戏对象分配、测试 mock 堆。
 - **超级扩展概念**：与 std::alloc::Layout 集成自定义对齐；与 std::panic::catch_unwind 安全 dealloc 大 Box；错误 panic 于 OOM；与 thin-box::ThinBox 薄 trait 对象替代；高性能用 box_alloc no_std Box；与 tracing::field Box 日志；历史：从 1.0 Box 到 1.36 alloc trait 优化。
 
-## 2. 创建 Box：Box::new 和 new_in（超级扩展）
+## 2. 创建 Box：Box::new 和 new_in
 
 `Box::new` 是入口，`new_in` 自定义分配。
 
@@ -90,7 +90,7 @@ fn main() {
 
 - **解释**：`Box<dyn Trait>` fat pointer (ptr + vtable)。扩展：use Any downcast。
 
-## 3. 操作 Box：Deref、Leak、IntoRaw（超级扩展）
+## 3. 操作 Box：Deref、Leak、IntoRaw
 
 操作访问和转换。
 
@@ -147,7 +147,7 @@ fn main() {
 
 - **解释**：`pin` 返回 Pin<Box<T>>。`as_mut` mut 访问不动点。扩展：用于 self-ref 或 poll。
 
-## 4. 高级：Box Slice、Str、Trait Obj（超级扩展）
+## 4. 高级：Box Slice、Str、Trait Obj
 
 - Slice：动态大小。
 
@@ -191,7 +191,7 @@ fn main() {
 
 - **解释**：Box<dyn Trait + Send + Sync> 线程安全。扩展：use vtable 检查 trait bound。
 
-## 5. 错误和panic：Box（超级扩展）
+## 5. 错误和panic：Box
 
 Box panic 于分配失败。
 
@@ -208,7 +208,7 @@ fn main() {
 
 - **解释**：分配失败 panic "out of memory"。扩展：use fallible-alloc crate try。
 
-## 6. 高级主题：Unsafe Raw、Pin 和 集成（超级扩展）
+## 6. 高级主题：Unsafe Raw、Pin 和 集成
 
 - Unsafe：低级。
 
@@ -226,7 +226,7 @@ fn main() {
 
 - **解释**：手动布局分配。unsafe 管理。
 
-## 7. 最佳实践和常见陷阱（超级扩展）
+## 7. 最佳实践和常见陷阱
 
 - **Box 最佳**：用 recursion 链表；trait obj 动态；leak 全局。
 - **性能**：小 T 栈大 T 堆；pin 防 move。
@@ -241,7 +241,7 @@ fn main() {
     - Fat ptr：trait vtable 大小。
     - Move pin：Pin 防。
 
-## 8. 练习建议（超级扩展）
+## 8. 练习建议
 
 1. 编写递归树：Box<Node> 子。
 2. 实现 trait 工厂：Box<dyn Trait> 返回。
