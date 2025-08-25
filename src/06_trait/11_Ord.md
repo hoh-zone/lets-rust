@@ -1,4 +1,4 @@
-# Rust Trait Ord
+# Trait Ord
 
 `Ord` trait 来自 `std::cmp` 模块，它的主要目的是为类型定义一个总序关系（total order）的比较操作。它要求类型实现 `PartialOrd`，并额外保证比较是总序，即对于任何两个值，总有一个明确的顺序关系（小于、等于或大于），适合用于排序或有序集合。与 `PartialOrd` 不同，`Ord` 表示一个总序关系（total order），确保所有值都可比较，且满足反自反性（irreflexivity for <）、传递性和连通性（totality）。`Ord` 是 `PartialOrd` 的子 trait，用于更严格的顺序语义，尤其在标准库集合如 `BTreeMap` 中，作为键要求 `Ord` 以确保有序存储。
 

@@ -1,4 +1,4 @@
-# Rust std::sync::mpsc 模块教程
+# std::sync::mpsc 模块教程
 
 Rust 的 `std::sync::mpsc` 模块是标准库中实现多生产者单消费者（Multi-Producer Single-Consumer）通道的核心组成部分，提供 `Sender`、`Receiver`、`channel` 等类型和函数，用于线程间安全通信和数据传输。它抽象了底层同步机制（如 Mutex 和 Condvar），确保跨平台兼容性，并通过 `std::sync::mpsc::RecvError`、`std::sync::mpsc::SendError` 或 `std::sync::mpsc::TryRecvError` 显式处理错误如通道断开、超时或阻塞失败。`std::sync::mpsc` 强调 Rust 的并发安全：通道使用所有权转移发送数据，避免共享 mutable 状态；接收端独占消费，防止竞争；支持 bounded/unbounded 通道以控制背压。模块的设计优先简单性和可靠性，适用于同步线程通信（异步用 tokio::sync::mpsc 或 futures::channel），并提供 try_send/try_recv 以非阻塞操作。`std::sync::mpsc` 与 `std::thread`（线程创建）、`std::sync`（其他同步如 Arc）、`std::time`（超时接收）、`std::panic`（断开通道）和 `std::os`（OS 特定集成如 select）深度集成，支持高级模式如广播通道模拟和错误恢复。
 

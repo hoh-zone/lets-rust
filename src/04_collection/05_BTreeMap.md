@@ -1,4 +1,4 @@
-# Rust std::collections::BTreeMap 库教程
+# std::collections::BTreeMap 库教程
 
 Rust 的 `std::collections::BTreeMap<K, V>` 类型是标准库 `std::collections` 模块中实现有序映射（Ordered Map）的核心组成部分，提供高效的键值对存储、查找、插入和删除操作，支持 O(log n) 时间复杂度的平衡二叉搜索树（B-Tree 变体），适用于需要按键有序访问的关联数据结构。它抽象了底层 B 树节点分配（使用 Box<Node<K, V>> 的平衡树结构），确保跨平台兼容性和内存安全，并通过 `std::collections::btree_map::Entry<'a, K, V>`、`std::collections::btree_map::OccupiedEntry<'a, K, V>`/`VacantEntry<'a, K, V>` 或运行时 panic（如容量溢出或无效键比较）显式处理错误如分配失败或键不存在。`std::collections::BTreeMap` 强调 Rust 的所有权、借用和零成本抽象模型：BTreeMap 拥有键值，通过 insert/remove/get/get_mut/entry/range/range_mut/first_key_value/last_key_value/pop_first/pop_last 等方法动态调整，支持泛型 K 的 Ord（键要求有序）、V 的任意类型；提供 len/is_empty 以查询大小，但无 capacity（树无预分配概念）；集成 Iterator/IntoIterator 以懒惰消费键/值/条目，按键有序遍历；支持 RangeBounds 以范围查询 &str 切片视图。模块的设计优先有序性和平衡性，适用于排序映射、优先级队列模拟和范围查询场景（对比 HashMap 的无序 O(1) 平均），并作为 BTreeMap 的扩展变体支持自定义分配器（alloc trait，1.36+）和与 BTreeSet 的互转。`std::collections::BTreeMap` 与 `std::cmp`（Ord trait 和 Ordering）、`std::alloc`（自定义分配）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::clone`（BTreeMap Clone 深拷贝）和 `std::ops`（RangeBounds 到 Iter）深度集成，支持高级模式如范围排水迭代、原子 entry 操作和与 Vec 的有序合并。
 

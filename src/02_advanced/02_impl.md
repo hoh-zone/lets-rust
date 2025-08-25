@@ -1,4 +1,4 @@
-# Rust impl
+# impl
 
 在 Rust 中，`impl` 关键字用于为类型实现方法和关联函数。它是 Rust 面向对象编程风格的核心，允许你为结构体（struct）、枚举（enum）或 trait 定义行为。`impl` 块可以将方法附加到类型上，实现封装和多态。
 

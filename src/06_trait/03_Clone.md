@@ -1,4 +1,4 @@
-# Rust Trait Clone
+# Trait Clone
 
 
 `Clone` trait 来自 `std::clone` 模块，它的主要目的是为类型提供一种显式复制值的方式。它允许你使用 `.clone()` 方法创建值的副本，通常用于需要深拷贝的场景，如在多线程或集合中复制数据。与 `Copy` 不同，`Clone` 是显式的，且可能涉及分配或复杂逻辑。

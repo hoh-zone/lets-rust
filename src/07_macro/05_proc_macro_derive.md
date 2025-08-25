@@ -1,4 +1,4 @@
-# Rust proc_macro_derive 教程
+# proc_macro_derive 教程
 
 Rust 的 `proc_macro_derive` 是过程宏系统的高级组成部分，提供自定义派生宏的 API，用于在编译时为结构体、枚举或联合体自动生成 trait 实现，支持 boilerplate 代码减少和库扩展，而无需手动编写重复 impl。它是 Rust 元编程的强大工具，抽象了 DeriveInput 的解析和 TokenStream 的生成，确保类型安全和效率，并通过编译错误或运行时 panic（如无效输入或栈溢）显式处理问题如字段缺失或泛型不匹配。`proc_macro_derive` 强调编译时代码生成：宏在扩展阶段运行，接收 DeriveInput TokenStream，输出 trait impl TokenStream；支持三种主要用例：简单 trait 实现、字段处理和条件生成；需在 Cargo.toml 中启用 [lib] proc_macro = true，并使用 extern crate proc_macro;。crate 的设计优先灵活性和功率，适用于库如 serde 的 `#[derive(Serialize)]` 或自定义 ORM 实体；相比 macro_rules! 更强大，能处理复杂 AST。`proc_macro_derive` 与 `proc_macro2`（stable TokenStream）、`syn`（AST 解析）、`quote`（代码生成）、`darling`（属性解析）、`std::panic`（宏中 panic 传播）和 `std::attribute`（辅助属性）深度集成，支持高级模式如递归字段处理、自定义错误诊断和 hygienic 名称生成。
 

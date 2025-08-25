@@ -1,4 +1,4 @@
-# Rust std::sync::Mutex 模块教程
+# std::sync::Mutex 模块教程
 
 Rust 的 `std::sync::Mutex` 类型是标准库 `std::sync` 模块中实现互斥锁（Mutual Exclusion Lock）的核心组成部分，提供 `Mutex<T>` 和 `MutexGuard<'a, T>` 等类型，用于保护共享数据在多线程环境中的安全访问。它抽象了底层 OS 同步原语（如 Unix 的 pthread_mutex 和 Windows 的 SRWLock 或 CriticalSection），确保跨平台兼容性，并通过 `std::sync::Mutex::lock` 返回 `Result<MutexGuard<'a, T>, PoisonError<MutexGuard<'a, T>>>` 显式处理错误如锁中毒（poisoning，当持有锁的线程 panic 时）。`std::sync::Mutex` 强调 Rust 的并发安全原则：通过 RAII（Resource Acquisition Is Initialization）模式和借用检查器确保锁的自动释放，防止死锁和数据竞争；支持泛型 T 的保护，T 无需 Send/Sync（Mutex 自身是 Sync）；提供 try_lock 以非阻塞尝试获取锁。模块的设计优先简单性和低开销，适用于同步线程共享状态（异步用 tokio::sync::Mutex 或 parking_lot::Mutex），并支持锁中毒恢复机制以允许继续使用中毒锁。`std::sync::Mutex` 与 `std::sync::Arc`（共享引用计数，用于多线程所有权）、`std::thread`（线程创建和加入）、`std::sync::Condvar`（条件变量结合实现监视器模式）、`std::panic`（毒锁传播 panic 信息）和 `std::os`（OS 特定锁扩展如 pthread_mutexattr）深度集成，支持高级并发模式如读者-写者锁模拟（用 RwLock 替代）和错误恢复。
 

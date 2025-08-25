@@ -1,4 +1,4 @@
-# Rust std::collections::BinaryHeap 库教程
+# std::collections::BinaryHeap 库教程
 
 Rust 的 `std::collections::BinaryHeap<T>` 类型是标准库 `std::collections` 模块中实现二进制堆（Binary Heap）的核心组成部分，提供高效的优先级队列操作，支持 O(log n) 插入和移除最大/最小元素的动态集合，适用于需要按优先级处理的场景。它抽象了底层 Vec<T> 数组的堆结构（使用父子索引维护堆性质），确保跨平台兼容性和内存安全，并通过 `std::collections::binary_heap::Drain<'a, T>`、`std::collections::binary_heap::Iter<'a, T>`、`std::collections::binary_heap::PeekMut<'a, T>` 或运行时 panic（如容量溢出或无效比较）显式处理错误如分配失败或堆不变量违反。`std::collections::BinaryHeap` 强调 Rust 的所有权、借用和零成本抽象模型：BinaryHeap 拥有元素，通过 push/pop/peek/peek_mut/into_sorted_vec/append/drain/len/is_empty/capacity/iter 等方法动态调整，支持泛型 T 的 Ord（默认 max-heap，元素要求有序）；集成 Iterator/IntoIterator 以懒惰消费（无序，除非 into_sorted_vec）；支持 PeekMut 以 mut 访问堆顶而不移除。模块的设计优先堆性质和性能，适用于优先级队列、Dijkstra 算法和调度任务场景（对比 Vec 的无序 O(1) 追加），并作为 BinaryHeap 的扩展变体支持自定义分配器（alloc trait，1.36+）和与 MinHeap 的互转（用 Reverse 包裹元素）。`std::collections::BinaryHeap` 与 `std::cmp`（Ord trait 和 Ordering）、`std::alloc`（自定义分配）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::clone`（BinaryHeap Clone 深拷贝）和 `std::ops`（无 Index，以堆不变量）深度集成，支持高级模式如 drain_sorted 有序排水、append 堆合并和与 Vec 的堆化。
 

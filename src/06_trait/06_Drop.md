@@ -1,4 +1,4 @@
-# Rust Trait Drop
+# Trait Drop
 
 `Drop` trait 来自 `std::ops` 模块，它的主要目的是为类型定义一个清理方法，当值离开作用域时自动调用。它类似于其他语言中的析构函数，用于释放资源、关闭文件或执行其他清理操作。与 `Drop` 相关的关键点是，它是 Rust 资源管理（RAII - Resource Acquisition Is Initialization）的核心，确保资源在不再需要时自动释放。
 

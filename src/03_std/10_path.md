@@ -1,4 +1,4 @@
-# Rust std::path 模块教程
+# std::path 模块教程
 
 Rust 的 `std::path` 模块是标准库中处理文件路径的核心组成部分，提供 `Path` 和 `PathBuf` 等类型，用于跨平台路径操作、解析和操纵。它抽象了不同操作系统（如 Windows 的反斜杠 \ 和 Unix 的正斜杠 /）的路径差异，确保代码的可移植性。`std::path` 的函数和方法多返回 `std::io::Result` 或 `Option`，以显式处理无效路径、编码错误或 OS 特定问题。模块强调借用和所有权：`Path` 是借用视图（&[u8] 的包装），`PathBuf` 是拥有字符串的 Vec<u8>。`std::path` 与 `std::fs`（文件系统操作）、`std::env`（当前目录）和 `std::ffi`（OsStr/OsString）紧密集成，支持 UTF-8 和非 UTF-8 路径。
 

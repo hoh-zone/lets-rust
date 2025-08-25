@@ -1,4 +1,4 @@
-# Rust std::process 模块教程
+# std::process 模块教程
 
 Rust 的 `std::process` 模块是标准库中处理子进程管理和执行外部命令的核心组成部分，提供 `Command`、`Child`、`ExitStatus` 等类型，用于启动、控制和等待进程。它抽象了底层 OS 进程 API（如 Unix fork/exec 和 Windows CreateProcess），确保跨平台兼容性，并通过 `std::io::Result` 显式处理错误如命令不存在或权限不足。`std::process` 强调安全性：防止命令注入（用 arg 而非字符串拼接），集成 stdin/stdout/stderr 重定向，支持环境变量和当前目录自定义。模块常与 `std::io`（I/O 流）、`std::thread`（并发等待）和 `std::env`（环境变量）结合使用，支持同步阻塞操作（异步用 tokio::process）。
 

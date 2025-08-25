@@ -1,4 +1,4 @@
-# Rust Trait FromStr
+# Trait FromStr
 
 `FromStr` trait 来自 `std::str` 模块，它的主要目的是从字符串解析值。它允许你定义如何从 `&str` 创建类型实例，并处理可能的解析错误，通常通过 `str::parse` 方法隐式调用。 与 `TryFrom<&str>` 类似，但 `FromStr` 是专为字符串解析设计的历史 trait。
 

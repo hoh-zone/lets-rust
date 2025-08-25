@@ -1,4 +1,4 @@
-# Rust Trait TryFrom
+# Trait TryFrom
 
 欢迎来到这个关于 Rust 中 `TryFrom` trait 的超级扩展版详细教程！这个教程将从基础概念开始，逐步深入到高级用法、示例、最佳实践和常见陷阱。我们将结合官方文档、Rust By Example、博客文章、Stack Overflow 讨论以及其他可靠来源的知识，提供全面的解释和代码示例。无论你是 Rust 新手还是有经验的开发者，这个教程都会帮助你彻底掌握 `TryFrom` trait。
 

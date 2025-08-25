@@ -1,4 +1,4 @@
-# Rust Trait BorrowMut
+# Trait BorrowMut
 
 `BorrowMut` trait 来自 `std::borrow` 模块，它的主要目的是允许类型互借为另一种类型，同时确保借用值与原值在比较、哈希和相等性上等价，并支持可变借用。它常用于集合如 `HashMap` 的键借用，允许修改借用值，同时保持语义一致。 与 `Borrow` 不同，`BorrowMut` 专注于可变借用，常与内部可变性模式结合使用，如在 `RefCell` 中。
 

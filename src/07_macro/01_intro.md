@@ -1,4 +1,4 @@
-# Rust Macros 教程
+# Macros 教程
 
 Rust 的宏系统是语言的核心特性之一，提供了一种元编程方式，用于在编译时生成代码，支持代码复用、DSL（领域特定语言）和性能优化，而不牺牲类型安全。Rust 宏分为两大类：**声明宏**（declarative macros，使用 `macro_rules!` 定义，基于模式匹配的语法扩展）和**过程宏**（procedural macros，使用 `proc_macro` crate 定义，包括函数式宏、派生宏和属性宏，允许任意 Rust 代码生成）。宏系统抽象了 TokenStream（令牌流）的解析和扩展，确保跨平台兼容性和编译时检查，并通过编译错误或运行时 panic（如递归深度超限或无效 Token）显式处理问题如模式不匹配或语法错误。Rust 宏强调编译时执行：宏展开在类型检查前发生，支持 hygiene（卫生性）以避免名称冲突；声明宏简单易用，过程宏强大但需外部 crate。模块的设计优先表达力和安全性，适用于 boilerplate 代码生成、性能关键扩展和库 API 增强场景（对比 C 的预处理器宏的安全问题），并作为宏系统的扩展支持自定义解析器和与 TokenStream 的互操作。Rust 宏与 `proc_macro`（过程宏 API）、`syn`/`quote`（外部解析/生成 crate）、`std::fmt`（格式化宏参数）和 `std::panic`（宏中 panic 传播）深度集成，支持高级模式如递归宏、自定义派生和属性注入。
 

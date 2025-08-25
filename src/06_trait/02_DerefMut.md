@@ -1,4 +1,4 @@
-# Rust Trait DerefMut
+# Trait DerefMut
 
 `DerefMut` trait 来自 `std::ops` 模块，它的主要目的是实现可变解引用操作，如 `*mut` 操作符在可变上下文中的使用。它允许自定义类型像指针一样工作，支持“可变解引用强制转换”（mutable deref coercion），让编译器自动插入 `deref_mut` 调用，使类型更灵活。与 `Deref` 不同，`DerefMut` 专注于可变引用，常用于智能指针如 `Box`、`Rc`、`Arc` 和 `RefCell` 的可变访问。
 

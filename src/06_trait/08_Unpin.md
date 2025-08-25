@@ -1,4 +1,4 @@
-# Rust Trait Unpin
+# Trait Unpin
 
 `Unpin` trait 来自 `std::marker` 模块，它是一个自动标记 trait（auto marker trait），表示类型可以安全地移动，即使它被固定（pinned）。它与 Rust 的 Pinning 系统密切相关，主要用于异步编程、futures 和 self-referential 类型，确保某些类型在被 Pin 后不会被意外移动，从而避免内存不安全。 与 `Pin` 类型结合，`Unpin` 允许开发者在需要固定内存的位置（如 futures 中的 self-referential pointers）时，灵活处理类型，而不会限制所有类型的移动。
 

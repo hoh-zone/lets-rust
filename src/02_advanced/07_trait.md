@@ -1,4 +1,4 @@
-# Rust Trait 
+# Trait 
 Rust 中的 trait 是定义共享行为的机制，类似于其他语言中的接口（interface）或协议（protocol）。Trait 允许你为不同类型定义方法签名，实现多态和代码复用，而不依赖继承。Rust 的 trait 系统是其类型系统和泛型的核心，支持默认实现、trait bound 和关联类型。这使得代码更灵活、安全，并且在编译时零开销。
 
 ## 1. Trait 简介

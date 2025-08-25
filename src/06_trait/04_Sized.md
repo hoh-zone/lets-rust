@@ -1,4 +1,4 @@
-# Rust Trait Sized
+# Trait Sized
 
 `Sized` trait 来自 `std::marker` 模块，它是一个标记 trait（marker trait），表示类型的尺寸在编译时已知。它允许编译器在泛型和 trait 对象中处理大小未知的类型（如切片或 trait 对象），并通过边界约束要求类型必须有固定大小。与 `?Sized` 不同，`Sized` 是默认的，而 `?Sized` 放松了大小要求，常用于 trait 对象或切片。
 

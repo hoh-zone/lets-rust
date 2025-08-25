@@ -1,4 +1,4 @@
-# Rust Trait Hash
+# Trait Hash
 
 
 `Hash` trait 来自 `std::hash` 模块，它的主要目的是为类型定义一种计算哈希值的方式，使得类型可以被哈希（hashed）以用于如 `HashMap` 或 `HashSet` 的键。它要求类型实现 `hash` 方法，将值馈送到一个 `Hasher` 中，以生成一个代表值的整数哈希。 与 `Eq` 结合，`Hash` 确保如果两个值相等，则它们的哈希值也相等，从而避免哈希冲突。 `Hash` 是 `Hasher` trait 的伴侣，用于计算哈希，而 `Hasher` 是状态机，累积哈希数据。

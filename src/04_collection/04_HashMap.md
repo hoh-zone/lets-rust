@@ -1,4 +1,4 @@
-# Rust std::collections::HashMap 库教程
+# std::collections::HashMap 库教程
 
 Rust 的 `std::collections::HashMap<K, V, S>` 类型是标准库 `std::collections` 模块中实现散列表（Hash Table）的核心组成部分，提供高效的键值对存储、查找、插入和删除操作，支持 O(1) 平均时间复杂度的动态映射，适用于唯一键的关联数据结构。它抽象了底层散列桶数组（使用 Vec<Bucket<K, V>> 的开放寻址或链式哈希变体，Rust 使用 SipHash 默认散列器以防哈希洪水攻击），确保跨平台兼容性和内存安全，并通过 `std::collections::hash_map::Entry` API、`std::collections::hash_map::OccupiedEntry`/`VacantEntry` 或运行时 panic（如容量溢出或无效散列）显式处理错误如分配失败、键不存在或散列冲突。`std::collections::HashMap` 强调 Rust 的所有权、借用和零成本抽象模型：HashMap 拥有键值，通过 insert/remove/get/get_mut/entry 等方法动态调整，支持泛型 K 的 Hash + Eq（键要求）、V 的任意类型和 S 的 BuildHasher（自定义散列器）；提供 capacity/reserve/shrink_to_fit 以控制内存使用；集成 Iterator/IntoIterator 以懒惰消费键/值/条目；支持 RawEntry API 以低级访问避免不必要散列计算。模块的设计优先高性能和灵活性，适用于缓存、配置映射和数据索引场景（对比 BTreeMap 的有序键），并作为 HashMap 的扩展变体支持自定义散列器如 RandomState 以安全默认。`std::collections::HashMap` 与 `std::hash`（Hash trait 和 BuildHasher）、`std::alloc`（自定义分配）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::clone`（HashMap Clone 深拷贝）和 `std::ops`（Index 到 &V 但无 mut，以防无效化）深度集成，支持高级模式如 raw_entry 原子操作、drain_filter 条件排水和与 HashSet 的互转。
 

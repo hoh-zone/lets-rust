@@ -1,4 +1,4 @@
-# Rust macro_rules! 教程（超级详细版本）
+# macro_rules! 教程（超级详细版本）
 
 Rust 的 `macro_rules!` 是声明式宏的定义方式，
 是 Rust 宏系统的基础组成部分，提供了一种简单的元编程工具，

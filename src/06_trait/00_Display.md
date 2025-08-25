@@ -1,4 +1,4 @@
-# Rust Trait Display
+# Trait Display
 
 `Display` trait 来自 `std::fmt` 模块，它的主要目的是为用户友好的格式化输出值。它允许你使用 `{}` 格式化说明符来打印值，通常用于最终用户面向的上下文，而不是调试。 与 `Debug` 不同，`Display` 不能自动派生，必须手动实现。
 

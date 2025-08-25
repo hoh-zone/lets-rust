@@ -1,4 +1,4 @@
-# Rust Trait Error
+# Trait Error
 
 `Error` trait 来自 `std::error` 模块，它是 Rust 错误处理的核心，用于定义错误类型的基本期望。它要求错误类型实现 `Debug` 和 `Display`，并提供方法来描述错误、其来源和上下文。 与其他格式化 trait 不同，`Error` 专注于错误的值语义和链式处理。
 

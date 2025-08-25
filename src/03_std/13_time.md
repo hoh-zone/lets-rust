@@ -1,4 +1,4 @@
-# Rust std::time 模块教程（超扩展版）
+# std::time 模块教程（超扩展版）
 
 Rust 的 `std::time` 模块是标准库中处理时间、持续时间、计时和时钟操作的核心组成部分，提供 `Duration`、`Instant`、`SystemTime` 等类型和相关方法，用于精确测量间隔、处理系统时钟、实现延时逻辑和时间相关计算。它抽象了底层 OS 时间接口（如 Unix 的 clock_gettime/monotonic 和 Windows 的 QueryPerformanceCounter/GetSystemTimeAsFileTime），确保跨平台兼容性，并通过 `std::io::Result`、`Option` 或专用错误类型（如 `SystemTimeError`、`TryFromFloatSecsError`）显式处理潜在问题如时钟回滚、溢出或精度不足。`std::time` 强调高精度和安全性：使用 u64/i128 表示时间以避免浮点误差，支持纳秒级分辨率，并提供 checked/saturating 操作防计算异常。模块的设计优先单调性和可靠性，`Instant` 用于性能敏感的内部计时（不受外部调整影响），`SystemTime` 用于外部可见的时间戳（可受 NTP 或用户修改）。`std::time` 与 `std::thread`（sleep/park_timeout）、`std::sync`（超时等待）、`std::net`（socket 超时）、`std::io`（I/O 超时）和 `std::panic`（panic 时计时）紧密集成，支持基准测试、日志时间戳和实时系统。
 

@@ -1,4 +1,4 @@
-# Rust std::collections::HashSet 库教程
+# std::collections::HashSet 库教程
 
 Rust 的 `std::collections::HashSet<T, S>` 类型是标准库 `std::collections` 模块中实现散列集合（Hash Set）的核心组成部分，提供高效的唯一元素存储、查找、插入和删除操作，支持 O(1) 平均时间复杂度的动态集合，适用于去重和成员检查的场景。它抽象了底层散列桶数组（使用 Vec<Bucket<T>> 的开放寻址或链式哈希变体，Rust 使用 SipHash 默认散列器以防哈希洪水攻击），确保跨平台兼容性和内存安全，并通过 `std::collections::hash_set::Drain<'a, T>`、`std::collections::hash_set::Iter<'a, T>` 或运行时 panic（如容量溢出或无效散列）显式处理错误如分配失败或元素不存在。`std::collections::HashSet` 强调 Rust 的所有权、借用和零成本抽象模型：HashSet 拥有元素，通过 insert/remove/contains/len/is_empty/iter/drain/drain_filter/retain/clear/reserve/shrink_to_fit 等方法动态调整，支持泛型 T 的 Hash + Eq（元素要求）和 S 的 BuildHasher（自定义散列器）；集成 Iterator/IntoIterator 以懒惰消费元素；支持 intersection/union/difference/symmetric_difference 以集合运算返回迭代器。模块的设计优先高性能和灵活性，适用于唯一集、缓存键和成员测试场景（对比 BTreeSet 的有序 O(log n)），并作为 HashSet 的扩展变体支持自定义散列器如 RandomState 以安全默认。`std::collections::HashSet` 与 `std::hash`（Hash trait 和 BuildHasher）、`std::alloc`（自定义分配）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::clone`（HashSet Clone 深拷贝）和 `std::ops`（无 Index，以防无效化）深度集成，支持高级模式如 drain_filter 条件排水、retain 就地过滤和与 HashMap 的互转。
 

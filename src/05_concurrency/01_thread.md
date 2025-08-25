@@ -1,4 +1,4 @@
-# Rust std::thread 模块教程
+# std::thread 模块教程
 
 Rust 的 `std::thread` 模块是标准库中实现多线程并发编程的根本支柱，提供 `Thread`、`JoinHandle`、`Builder`、`Scope` 等类型和函数，用于线程的创建、配置、管理、同步和错误处理。它抽象了底层操作系统线程机制（如 POSIX pthread、Windows CreateThread 和其他平台的对应实现），确保跨平台兼容性，并通过 `std::io::Result`、`std::thread::Result` 或专用 panic 传播机制显式处理错误如线程资源耗尽、栈溢出或 OS 级失败。`std::thread` 强调 Rust 的核心安全原则：通过 move 闭包和借用检查器防止数据竞争；panic 在线程边界隔离，但可通过 JoinHandle 捕获和传播；支持线程本地存储（TLS）和作用域线程以简化借用。模块的设计优先简单性和可靠性，适用于同步阻塞场景（异步用 tokio 或 async-std），并提供 Builder 以自定义线程属性如栈大小、名称和优先级（OS 扩展）。`std::thread` 与 `std::sync`（共享状态如 Mutex/Arc）、`std::panic`（钩子和捕获）、`std::time`（延时和超时）、`std::os`（OS 特定线程扩展如 pthread_attr）和 `std::env`（环境继承）深度集成，支持高级并发模式如线程池模拟和条件等待。
 

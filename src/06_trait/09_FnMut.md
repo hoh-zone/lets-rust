@@ -1,4 +1,4 @@
-# Rust Trait FnMut
+# Trait FnMut
 
 `FnMut` trait 来自 `std::ops` 模块，它是 Rust 函数 trait（function traits）家族的一部分，用于表示可以像函数一样调用的类型。具体来说，`FnMut` 表示一个可以重复调用并可能修改其捕获状态的闭包或函数指针。它允许类型实现可变接收器的调用操作，支持泛型编程中的函数式风格。与 `Fn` 和 `FnOnce` 不同，`FnMut` 平衡了重复调用和状态修改的能力，适合需要修改捕获变量但可重复调用的场景。
 

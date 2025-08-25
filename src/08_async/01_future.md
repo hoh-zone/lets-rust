@@ -1,4 +1,4 @@
-# Rust Trait Future
+# Trait Future
 
 `Future` trait 来自 `std::future` 模块，它是 Rust 异步编程的核心，用于表示一个异步计算的值或操作。它定义了一个 `poll` 方法，用于检查异步任务是否完成，并返回结果或继续等待。 与 `async/await` 语法结合，`Future` trait 是 Rust 非阻塞 I/O 和并发的基础。 `Future` 是 poll-based 的模型，允许运行时（如 Tokio）高效调度任务，而不阻塞线程。
 

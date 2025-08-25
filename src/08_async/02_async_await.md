@@ -1,4 +1,4 @@
-# Rust async/await
+# async/await
 
 Rust 的 async/await 是异步编程的语法糖，它使异步代码像同步代码一样易读和编写。async/await 构建在 Future trait 之上，允许开发者定义异步函数，并使用 await 来暂停执行直到 Future 就绪。 与同步代码不同，async/await 非阻塞线程，而是通过运行时调度任务，提高 I/O 密集应用的效率。 async/await 自 Rust 1.39 起稳定，是 Rust 异步生态的核心。
 

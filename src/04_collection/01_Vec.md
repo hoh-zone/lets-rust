@@ -1,4 +1,4 @@
-# Rust std::vec::Vec 库教程（超级扩展版）
+# std::vec::Vec 库教程（超级扩展版）
 
 Rust 的 `std::vec::Vec<T>` 类型是标准库 `std::vec` 模块（以及相关 `std::collections` 中的 VecDeque 扩展）的核心组成部分，提供动态数组的实现，用于高效管理可增长的连续内存序列，支持元素插入、移除、迭代、容量控制、内存布局优化和高级内存操作。它抽象了底层内存分配器（使用 std::alloc::GlobalAlloc 或自定义 Allocator trait），确保跨平台兼容性和内存安全，并通过 `std::vec::Drain<'a, T>`、`std::vec::Splice<'a, T, I>`、`std::vec::IntoIter<T>` 或运行时 panic（如索引越界、容量溢出或无效切片）显式处理错误如分配失败或无效操作。`std::vec::Vec` 强调 Rust 的所有权、借用和零成本抽象模型：Vec 拥有元素，通过 push/pop/reserve 等方法动态调整大小，支持泛型 T 的任意类型（无需 Copy/Clone，除非指定方法要求）；提供 capacity/shrink_to_fit 以最小化内存使用；集成 Iterator/IntoIterator 以懒惰消费；支持 unsafe 方法如 set_len/as_mut_ptr 以低级控制。模块的设计优先高性能和灵活性，适用于通用数据存储场景（多线程用 Arc<Vec<T>>），并提供 VecDeque<T> 作为双端队列变体以 O(1) 前后操作。`std::vec::Vec` 与 `std::alloc`（自定义分配）、`std::slice`（&[T] 借用视图）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::ptr`（指针操作）、`std::clone`（Vec Clone 深拷贝）和 `std::ops`（Index/IndexMut 到 &T/&mut T）深度集成，支持高级模式如零拷贝切片、Drain 排水迭代和 Splice 拼接操作。
 

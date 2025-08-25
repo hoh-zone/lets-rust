@@ -1,4 +1,4 @@
-# Rust std::iter 模块教程
+# std::iter 模块教程
 
 Rust 的 `std::iter` 模块是标准库中处理迭代器的核心部分，提供 `Iterator` trait 和各种适配器、实用工具，用于懒惰地处理序列数据。迭代器允许链式操作（如 map、filter），避免中间集合分配，提高效率和表达力。`std::iter` 强调零成本抽象：编译时展开，运行时无开销。它与集合（如 Vec、HashMap）和范围（Range）集成，支持函数式编程风格。模块包括 trait 定义、适配器函数（如 `once`、`empty`）和扩展方法。
 

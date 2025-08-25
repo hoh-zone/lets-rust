@@ -1,4 +1,4 @@
-# Rust std::sync::Arc 模块教程
+# std::sync::Arc 模块教程
 
 Rust 的 `std::sync::Arc` 类型是标准库 `std::sync` 模块中实现原子引用计数的根本支柱，提供 `Arc<T>`、`Weak<T>`、`ArcInner`（内部）和相关 trait，用于在多线程环境中管理共享所有权的对象生命周期，而不需垃圾回收或手动同步。它抽象了底层原子操作（使用 std::sync::atomic::AtomicUsize for strong/weak 计数），确保跨平台兼容性和线程安全，并通过 `std::sync::Arc::downgrade` 返回 Weak 以处理循环引用，以及运行时 panic 或 `Option` 处理错误如弱引用升级失败或计数溢出。`std::sync::Arc` 强调 Rust 的并发模型扩展：允许多线程共享不可变数据，通过原子计数在最后一个 Arc drop 时释放资源；支持弱引用（Weak）以打破循环避免内存泄漏；泛型 T 要求 Send + Sync 以确保线程安全传输。模块的设计优先高并发低开销，适用于多线程共享场景（单线程用 std::rc::Rc），并提供 try_unwrap 以回收唯一所有权，以及 ptr_eq 以高效比较。`std::sync::Arc` 与 `std::sync::Mutex`/`RwLock`（保护内部可变）、`std::thread`（线程创建和数据转移）、`std::atomic`（计数基础）、`std::mem`（内存布局优化）、`std::clone`（Arc Clone 原子增计数）、`std::ops`（Deref 到 &T）和 `std::panic`（panic 时计数安全）深度集成，支持高级并发模式如原子共享指针、弱引用缓存、多线程树结构和错误恢复。
 

@@ -1,4 +1,4 @@
-# Rust async fn in traits
+# async fn in traits
 
 async fn in traits 是 Rust 异步编程的重要进步，它允许 trait 中定义异步方法，并支持 trait 对象（dyn Trait），从而使异步 trait 更易用和强大。 与普通 fn in traits 不同，async fn 需要处理 Future 返回类型，并与 Pinning 系统集成，以支持 self-referential futures。 这个特性解决了长期存在的异步 trait 问题，使 Rust 异步生态更成熟。
 

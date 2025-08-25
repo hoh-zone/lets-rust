@@ -1,4 +1,4 @@
-# Rust Trait FnOnce
+# Trait FnOnce
 
 `FnOnce` trait 来自 `std::ops` 模块，它是 Rust 函数 trait（function traits）家族的一部分，用于表示可以像函数一样调用的类型。具体来说，`FnOnce` 表示一个可以调用一次并可能消耗其捕获状态的闭包或函数指针。它允许类型实现消耗接收器的调用操作，支持泛型编程中的函数式风格。与 `FnMut` 和 `Fn` 不同，`FnOnce` 是最宽松的，允许调用一次并可能移动捕获的值，因此适合只需调用一次的场景。 Rust 的函数 trait 家族包括 `Fn`、`FnMut` 和 `FnOnce`，它们是闭包和函数指针的核心抽象，用于描述调用语义。`FnOnce` 是基础层：允许消耗 self。
 

@@ -1,4 +1,4 @@
-# Rust Trait ToString
+# Trait ToString
 
 `ToString` trait 来自 `std::string` 模块，它的主要目的是将值转换为 `String`。它通过 blanket impl 为所有实现 `Display` 的类型自动提供，通常用于需要字符串表示的场景，如日志记录或字符串拼接。 与 `Display` 不同，`ToString` 专注于生成拥有所有权的 `String`，而非格式化输出。
 

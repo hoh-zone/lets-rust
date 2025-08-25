@@ -1,4 +1,4 @@
-# Rust 迭代器教程
+# 迭代器教程
 
 Rust 的迭代器（iterators）是处理序列数据的强大工具，允许你以懒惰（lazy）方式遍历集合，而不立即计算所有元素。这提高了效率，尤其在链式操作中。迭代器实现了 `Iterator` trait，提供 `next()` 方法返回 `Option<Item>`。Rust 标准库中的许多类型如 Vec、HashMap、Range 等都支持迭代器。迭代器是零成本抽象，编译时优化。
 

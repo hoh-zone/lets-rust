@@ -1,4 +1,4 @@
-# Rust Trait TryInto
+# Trait TryInto
 
 `TryInto` trait 来自 `std::convert` 模块，它的主要目的是定义如何将一个类型的值尝试转换为另一个类型的值，同时消耗输入值，并处理可能的失败。它是 `TryFrom` trait 的互补，通常用于泛型上下文中的可能失败转换，尤其在不需要指定目标类型时非常有用。与 `Into` 不同，`TryInto` 返回一个 `Result`，允许处理转换错误。
 

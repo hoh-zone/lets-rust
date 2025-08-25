@@ -1,4 +1,4 @@
-# Rust std::net 模块教程
+# std::net 模块教程
 
 Rust 的 `std::net` 模块是标准库中处理网络通信的核心部分，提供 TCP、UDP 和 IP 相关的类型和函数，用于构建客户端/服务器应用、网络工具和低级 socket 操作。它抽象了底层 OS 网络 API（如 BSD sockets），确保跨平台兼容性（Windows、Unix、macOS），并通过 `io::Result` 显式处理错误如连接失败或超时。`std::net` 强调安全：无缓冲区溢出风险，集成 Rust 的借用检查器。模块支持 IPv4/IPv6、流式（TCP）和数据报（UDP）通信，但不包括高级协议如 HTTP（用 hyper 等 crate）。
 

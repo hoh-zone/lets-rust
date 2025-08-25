@@ -1,4 +1,4 @@
-# Rust Trait PartialOrd
+# Trait PartialOrd
 
 `PartialOrd` trait 来自 `std::cmp` 模块，它的主要目的是为类型定义一个部分预序关系（partial order）的比较操作。它允许类型实现 `<`、`>`、`<=`、`>=` 操作符，支持部分比较语义，例如浮点数中的 NaN 不可与任何值比较。与 `Ord` 不同，`PartialOrd` 表示一个部分预序关系（partial preorder），允许某些值不可比，而不要求所有值都有明确的顺序关系。`PartialOrd` 是 `Ord` 的超 trait，用于更灵活的顺序语义，尤其在标准库集合如 `BinaryHeap` 中，可以作为元素要求 `PartialOrd` 以支持部分有序。
 

@@ -1,4 +1,4 @@
-# Rust Trait PartialEq
+# Trait PartialEq
 
 `PartialEq` trait 来自 `std::cmp` 模块，它的主要目的是为类型定义一个部分等价关系（partial equivalence relation）的相等比较。它允许类型实现 `==` 和 `!=` 操作符，支持部分相等语义，例如浮点数中的 NaN 不等于自身。 与 `Eq` 不同，`PartialEq` 不要求自反性（reflexivity），因此适合如浮点数的场景，其中 NaN != NaN。 `PartialEq` 是 `Eq` 的超 trait，用于更灵活的相等语义，尤其在标准库集合如 `HashMap` 中，可以作为键要求 `PartialEq` 以支持部分相等。
 

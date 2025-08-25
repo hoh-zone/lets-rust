@@ -1,4 +1,4 @@
-# Rust proc_macro 教程
+# proc_macro 教程
 
 Rust 的 `proc_macro` crate 是 Rust 元编程系统的核心组成部分，提供过程宏的 API，用于在编译时生成自定义代码，支持语法扩展、trait 派生和属性注入，而不牺牲类型安全和性能。`proc_macro` 允许开发者创建像编译器插件一样的宏，通过 TokenStream 处理输入，生成新的 TokenStream 插入代码中。它是 Rust 高级宏的基石，抽象了编译器的 Token 处理，确保效率和隔离，并通过编译错误或 panic（如无效 Token 或内存溢出）显式处理问题如解析失败或无限循环。`proc_macro` 强调编译时计算：宏在扩展阶段执行，访问 TokenStream 而非完整 AST（用 syn 桥接）；支持函数宏、属性宏、派生宏和未来函数式变体；需在 Cargo.toml 启用 [lib] proc_macro = true，并 extern crate proc_macro;。crate 的设计优先功率和灵活性，适用于复杂代码生成、库增强和 DSL，相比 macro_rules! 更通用，但需 dep。`proc_macro` 与 `proc_macro2`（stable TokenStream）、`syn`（AST 解析）、`quote`（代码生成）、`darling`（属性解析）、`std::panic`（panic 传播）和 `std::attribute`（属性处理）深度集成，支持高级模式如递归 Token 处理、自定义诊断和 hygienic 名称。
 

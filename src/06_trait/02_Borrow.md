@@ -1,4 +1,4 @@
-# Rust Trait Borrow
+# Trait Borrow
 
 `Borrow` trait 来自 `std::borrow` 模块，它的主要目的是允许类型借用为另一种类型，同时确保借用值与原值在比较、哈希和相等性上等价。它常用于集合如 `HashMap` 的键借用，允许使用 `&String` 查找 `HashMap<&str>` 中的值。 与 `AsRef` 或 `Deref` 不同，`Borrow` 强调借用的语义一致性，而不是通用引用转换。
 

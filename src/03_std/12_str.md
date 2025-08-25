@@ -1,4 +1,4 @@
-# Rust std::str 模块教程
+# std::str 模块教程
 
 Rust 的 `std::str` 模块是标准库中处理字符串切片（&str 和 str）的核心组成部分，提供实用方法用于字符串的解析、搜索、分割、替换、转换和验证等操作。它抽象了 UTF-8 编码的复杂性，确保字符串操作的安全性和效率。`std::str` 的函数和方法多返回 `Result` 或 `Option`，以显式处理无效 UTF-8、边界错误或解析失败。模块强调借用：&str 是借用视图，String 是拥有版本（在 std::string）。`std::str` 与 `std::string`（String 类型）、`std::fmt`（格式化）、`std::io`（读取字符串）和 `std::path`（路径字符串）紧密集成，支持 Unicode 和多字节字符处理。
 

@@ -1,4 +1,4 @@
-# Rust Trait Sync
+# Trait Sync
 
 `Sync` trait 来自 `std::marker` 模块，它是一个标记 trait（marker trait），表示类型可以安全地在多个线程间共享引用（即 `&T` 是 `Send` 的）。它确保类型在并发环境中不会导致数据竞争或内存不安全，常与 `std::sync::Arc` 等结合使用。与 `Send` 不同，`Sync` 专注于共享引用的线程安全，而不是所有权转移的安全。
 

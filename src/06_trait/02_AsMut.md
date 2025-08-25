@@ -1,4 +1,4 @@
-# Rust Trait AsMut
+# Trait AsMut
 
 `AsMut` trait 来自 `std::convert` 模块，它的主要目的是进行廉价的可变引用到可变引用的转换。它类似于 `AsRef`，但专用于可变引用，通常用于泛型函数中以接受多种类型，并转换为目标可变引用。 与 `BorrowMut` 不同，`AsMut` 不强调哈希等价性，而是专注于引用转换。
 

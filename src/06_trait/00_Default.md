@@ -1,4 +1,4 @@
-# Rust Trait Default
+# Trait Default
 
 `Default` trait 来自 `std::default` 模块，它的主要目的是为类型提供一个有用的默认值。它允许你使用 `Default::default()` 来获取类型的默认实例，通常用于初始化结构体、集合或泛型参数。 与其他初始化方式不同，`Default` 强调一个“合理”的默认值，而非零初始化。
 

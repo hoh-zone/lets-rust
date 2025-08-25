@@ -1,4 +1,4 @@
-# Rust std::collections::VecDeque 库教程
+# std::collections::VecDeque 库教程
 
 Rust 的 `std::collections::VecDeque<T>` 类型是标准库 `std::collections` 模块中实现双端队列（Double-Ended Queue）的核心组成部分，提供高效的从前端或后端添加/移除元素的动态数组变体，支持 O(1) amortized 操作、容量控制、迭代和内存布局优化。它抽象了底层环形缓冲区实现（使用 Vec-like 内存块，但头尾指针循环），确保跨平台兼容性和内存安全，并通过 `std::collections::vec_deque::Drain<'a, T>`、`std::collections::vec_deque::Iter<'a, T>` 或运行时 panic（如索引越界、容量溢出或无效旋转）显式处理错误如分配失败或无效操作。`std::collections::VecDeque` 强调 Rust 的所有权、借用和零成本抽象模型：VecDeque 拥有元素，通过 push_front/push_back/pop_front/pop_back/rotate_left 等方法动态调整，支持泛型 T 的任意类型（无需 Copy/Clone，除非指定方法要求）；提供 reserve/exact_reserve 以最小化重分配和内存碎片；集成 Iterator/IntoIterator 以懒惰消费；支持 make_contiguous 以线性化内部缓冲用于 &mut [T] 视图。模块的设计优先高性能和灵活性，适用于队列、环形缓冲和 deque 场景（对比 Vec 的后端偏好），并作为 Vec 的扩展变体支持前端 O(1) 操作。`std::collections::VecDeque` 与 `std::alloc`（自定义分配）、`std::slice`（&[T] 借用视图）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::ptr`（指针操作）、`std::clone`（VecDeque Clone 深拷贝）和 `std::ops`（Index/IndexMut 到 &T/&mut T）深度集成，支持高级模式如零拷贝切片、Drain 排水迭代、rotate 操作和与 Vec 的互转。
 

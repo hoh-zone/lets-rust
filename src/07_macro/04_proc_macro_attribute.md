@@ -1,4 +1,4 @@
-# Rust proc_macro_attribute 详细教程
+# proc_macro_attribute 详细教程
 
 Rust 的 `proc_macro_attribute` 是过程宏系统中用于定义自定义属性宏的机制。它允许开发者在编译时修改或扩展代码项（如函数、结构体、模块等），通过接收属性参数和项 TokenStream，生成新的 TokenStream 来替换或增强原项。这是一种强大的元编程工具，可以用于代码注入、装饰器模式和语法增强。属性宏的签名是 `#[proc_macro_attribute] pub fn name(attr: TokenStream, item: TokenStream) -> TokenStream`，其中 `attr` 是属性参数的 TokenStream，`item` 是被修饰项的 TokenStream，返回值是新的 TokenStream。
 

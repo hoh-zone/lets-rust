@@ -1,4 +1,4 @@
-# Rust Tokio 教程
+# Tokio 教程
 
 Tokio 是 Rust 生态中领先的异步运行时（runtime），专为构建高效、可靠的异步应用而设计。它提供多线程调度器、异步 I/O、定时器、同步原语等工具，广泛用于网络服务、数据库客户端和并发任务处理。Tokio 构建在 Rust 的 async/await 语法之上，与标准库无缝集成，支持从嵌入式设备到大型服务器的各种场景。截至 2025 年 8 月，Tokio 的最新版本是 1.47.0（于 2025 年 7 月 25 日发布），引入了合作调度（cooperative scheduling）的 poll_proceed 和 cooperative 模块，以及 sync 模块中的 SetOnce。 本教程从基础到高级逐步讲解 Tokio 的使用，包括安装、任务管理、通道、I/O 操作、深入异步机制、选择分支、流处理、帧处理和优雅关闭。假设你已安装 Rust（通过 `rustup`），并使用 `cargo` 创建项目（如 `cargo new tokio-app`）。所有示例基于 Tokio 1.47.x，可复制到 `src/main.rs` 中，使用 `cargo run` 执行。教程将包含详细解释、多个代码示例、最佳实践和练习，以帮助你构建生产级异步应用。
 

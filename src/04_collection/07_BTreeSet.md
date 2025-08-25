@@ -1,4 +1,4 @@
-# Rust std::collections::BTreeSet 库教程
+# std::collections::BTreeSet 库教程
 
 Rust 的 `std::collections::BTreeSet<T>` 类型是标准库 `std::collections` 模块中实现有序集合（Ordered Set）的核心组成部分，提供高效的唯一元素存储、查找、插入和删除操作，支持 O(log n) 时间复杂度的平衡二叉搜索树（B-Tree 变体），适用于需要按元素有序访问的唯一集数据结构。它抽象了底层 B 树节点分配（使用 Box<Node<T>> 的平衡树结构），确保跨平台兼容性和内存安全，并通过 `std::collections::btree_set::Iter<'a, T>`、`std::collections::btree_set::Range<'a, T>` 或运行时 panic（如容量溢出或无效元素比较）显式处理错误如分配失败或元素不存在。`std::collections::BTreeSet` 强调 Rust 的所有权、借用和零成本抽象模型：BTreeSet 拥有元素，通过 insert/remove/contains/first/last/pop_first/pop_last/range/range_mut/lower_bound/upper_bound/len/is_empty/iter/iter_mut/drain_filter/retain/clear 等方法动态调整，支持泛型 T 的 Ord（元素要求有序）；集成 Iterator/IntoIterator 以懒惰消费元素，按序遍历；支持 RangeBounds 以范围查询 &T 视图。模块的设计优先有序性和平衡性，适用于排序集合、范围检查和唯一有序列表场景（对比 HashSet 的无序 O(1) 平均），并作为 BTreeSet 的扩展变体支持自定义分配器（alloc trait，1.36+）和与 BTreeMap 的互转。`std::collections::BTreeSet` 与 `std::cmp`（Ord trait 和 Ordering）、`std::alloc`（自定义分配）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::clone`（BTreeSet Clone 深拷贝）和 `std::ops`（RangeBounds 到 Iter）深度集成，支持高级模式如范围排水迭代、原子 retain 操作和与 Vec 的有序合并。
 

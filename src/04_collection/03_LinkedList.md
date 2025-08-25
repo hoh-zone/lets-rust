@@ -1,4 +1,4 @@
-# Rust std::collections::LinkedList 库教程
+# std::collections::LinkedList 库教程
 
 Rust 的 `std::collections::LinkedList<T>` 类型是标准库 `std::collections` 模块中实现双向链表（Doubly-Linked List）的核心组成部分，提供高效的在任意位置插入/移除元素的动态序列，支持 O(1) 前后端操作、游标（Cursor）定位和链表分割/拼接。它抽象了底层节点分配（使用 Box<Node<T>> 的链式结构），确保跨平台兼容性和内存安全，并通过 `std::collections::linked_list::Cursor<'a, T>`、`std::collections::linked_list::CursorMut<'a, T>`、`std::collections::linked_list::Iter<'a, T>` 或运行时 panic（如无效游标、溢出或借用冲突）显式处理错误如分配失败或无效操作。`std::collections::LinkedList` 强调 Rust 的所有权、借用和零成本抽象模型：LinkedList 拥有节点，通过 push_front/push_back/pop_front/pop_back/append/split_off/remove 等方法动态调整，支持泛型 T 的任意类型（无需 Copy/Clone，除非指定方法要求）；提供 len/is_empty 以查询大小，但无 capacity（链表无预分配概念）；集成 Iterator/IntoIterator 以懒惰消费；支持 Cursor 以 O(1) 定位任意元素进行插入/移除。模块的设计优先灵活性和节点级操作，适用于频繁插入/删除的场景（对比 Vec 的连续内存优势），并作为链表的扩展变体支持拼接和游标导航。`std::collections::LinkedList` 与 `std::alloc`（自定义分配）、`std::iter`（迭代适配器）、`std::mem`（内存交换/forget）、`std::ptr`（指针操作）、`std::clone`（LinkedList Clone 深拷贝）和 `std::ops`（Index 到 &T 但无 mut，以防无效化）深度集成，支持高级模式如原子链表拼接、Cursor 游标遍历和与 Vec 的互转。
 

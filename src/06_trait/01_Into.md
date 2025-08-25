@@ -1,4 +1,4 @@
-# Rust Trait Into
+# Trait Into
 
 `Into` trait 来自 `std::convert` 模块，它的主要目的是定义如何将一个类型的值转换为另一个类型的值，同时消耗输入值。它是 `From` trait 的互补，通常用于泛型上下文中的灵活转换，尤其在不需要指定源类型时非常有用。 与 `From` 不同，`Into` 强调从源类型的视角进行转换。
 
