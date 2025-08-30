@@ -413,7 +413,7 @@ fn benchmark() {
     let start = Instant::now();
     let mut sum: i64 = 0;
     for _ in 0..1000000 {
-        sum += adder.compute(10) as i64; // 隐式转换 i32 到 i64
+        sum += adder.compute(10) as i64; // 显式转换 i32 到 i64 以避免编译错误
     }
     println!("静态分发时间: {:?}", start.elapsed());
     println!("静态分发结果 (i32): {}", sum);
