@@ -2,7 +2,7 @@
 resolver = "2"
 
 members = [
-    "lesson/*/",
+    "lesson/*/", "rustacean/00000/code/hello",
 ]
 
 exclude = [

@@ -1,0 +1,6 @@
+[book]
+authors = ["Alan"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Lets Rust"
