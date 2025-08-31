@@ -1,0 +1,77 @@
+[package]
+name = "minigrep"
+version = "0.1.0"
+edition = "2021"
+authors = ["Rust学习者 <learner@example.com>"]
+description = "一个用于学习Rust语法的minigrep项目 - 文本搜索工具"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/example/minigrep"
+keywords = ["cli", "search", "text", "grep", "rust-learning"]
+categories = ["command-line-utilities", "text-processing"]
+
+# 二进制目标配置
+[[bin]]
+name = "minigrep"
+path = "src/main.rs"
+
+# 库目标配置
+[lib]
+name = "minigrep"
+path = "src/lib.rs"
+
+# 依赖项 - 演示如何管理外部crate
+[dependencies]
+# 用于环境变量处理的示例依赖
+# serde = { version = "1.0", features = ["derive"] }
+# clap = { version = "4.0", features = ["derive"] }
+
+# 开发依赖 - 仅在测试和开发时使用
+[dev-dependencies]
+# 用于更好的测试断言
+# assert_cmd = "2.0"
+# predicates = "3.0"
+
+# 编译配置
+[profile.dev]
+# 开发模式：快速编译，包含调试信息
+opt-level = 0
+debug = true
+split-debuginfo = "unpacked"
+debug-assertions = true
+overflow-checks = true
+lto = false
+panic = "unwind"
+incremental = true
+codegen-units = 256
+rpath = false
+
+[profile.release]
+# 发布模式：优化性能
+opt-level = 3
+debug = false
+split-debuginfo = "packed"
+debug-assertions = false
+overflow-checks = false
+lto = true
+panic = "abort"
+incremental = false
+codegen-units = 1
+rpath = false
+
+# 文档配置
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+# 示例配置已移除 - 可以通过 cargo run -- --example 查看示例
+
+# 特性标志 - 演示条件编译
+[features]
+default = []
+# 启用彩色输出
+color = []
+# 启用正则表达式支持
+regex = []
+# 启用性能分析
+profiling = []
