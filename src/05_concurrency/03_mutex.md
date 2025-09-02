@@ -82,7 +82,7 @@ fn main() {
     let guard = mutex.lock();
     if guard.is_err() {
         let poisoned = guard.unwrap_err();
-        println!("毒: {}", poisoned.is_poisoned());  // true
+        println!("毒: {}", mutex.is_poisoned());  // true
         let inner = poisoned.into_inner();
         println!("恢复: {}", *inner);  // 0，忽略毒
     }
