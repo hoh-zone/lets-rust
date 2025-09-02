@@ -55,7 +55,7 @@
   - [HashMap](04_collection/04_HashMap.md)
   - [BTreeMap](04_collection/05_BTreeMap.md)
   - [HashSet](04_collection/06_HashSet.md)
-  - [BTreeMap](04_collection/07_BTreeSet.md)
+  - [BTreeSet](04_collection/07_BTreeSet.md)
   - [BinaryHeap](04_collection/08_BinaryHeap.md)
 
 
