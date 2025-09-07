@@ -34,7 +34,7 @@
 - [标准库]()
   - [option](03_std/01_option.md)
   - [result](03_std/02_result.md)
-  - [evn](03_std/03_env.md)
+  - [env](03_std/03_env.md)
   - [fmt](03_std/04_fmt.md)
   - [fs](03_std/05_fs.md)
   - [io](03_std/06_io.md)
@@ -119,7 +119,13 @@
 
 ### 常用库
 - [常用库]()
-
+  - [serde](09_common/01_serde.md)
+  - [clap](09_common/02_clap.md)
+  - [anyhow](09_common/03_anyhow.md)
+  - [tracing](09_common/04_tracing.md)
+  - [lazy_static](09_common/05_lazy_static.md)
+  - [chrono](09_common/06_chrono.md)
+  - [once_cell](09_common/07_once_cell.md)
 
 ### 后端框架 axum
 - [axum]()
