@@ -44,6 +44,7 @@ fn main() {
     let r3 = &mut s;
     r3.push_str(", world");
     println!("{}", r3);
+    println!("s is {}",s); //会发现 s 的值变了
 }
 ```
 
