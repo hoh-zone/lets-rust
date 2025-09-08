@@ -1,0 +1,39 @@
+I'm nobody! Who are you?
+Are you nobody, too?
+Then there's a pair of us - don't tell!
+They'd banish us, you know.
+
+How dreary to be somebody!
+How public, like a frog
+To tell your name the livelong day
+To an admiring bog!
+
+-- Emily Dickinson
+
+Rust is a systems programming language
+that runs blazingly fast, prevents segfaults,
+and guarantees thread safety.
+
+Rust empowers everyone
+to build reliable and efficient software.
+
+The Rust programming language helps you write faster, more reliable software.
+High-level ergonomics and low-level control are often at odds in programming language design;
+Rust challenges that tradeoff.
+
+Through balancing powerful technical capacity and a great developer experience,
+Rust gives you the option to control low-level details (such as memory usage)
+without all the hassle traditionally associated with such control.
+
+🦀 Rust 是一门系统编程语言
+专注于安全、速度和并发。
+
+Rust 的设计让你能够编写快速且安全的代码，
+同时避免了传统系统编程语言中的常见陷阱。
+
+无论你是经验丰富的系统程序员，
+还是刚刚开始学习编程，
+Rust 都能为你提供强大的工具和友好的社区支持。
+
+Welcome to the Rust community!
+Happy coding with Rust! 🚀
