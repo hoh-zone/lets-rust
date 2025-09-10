@@ -201,9 +201,17 @@ impl<'a> ImportantExcerpt<'a> {
 fn main() {
     let novel = String::from("Call me Ishmael. Some years ago...");
     let first_sentence = novel.split('.').next().expect("Could not find a '.'");
-    let i = ImportantExcerpt {
-        part: first_sentence,
-    };
+
+    let res;
+    {
+        let i = ImportantExcerpt {
+            part: first_sentence,
+        };
+        res = i.announce_and_return_part("生命周期");
+        println!("{}", res);
+    }
+    // 根据上面的规则3，res的生命周期由 i 决定。此处 i 已经离开作用域，故 res 无效
+    // println!("{}", res);
 }
 ```
 

@@ -413,7 +413,7 @@ fn benchmark() {
     let start = Instant::now();
     let mut sum: i64 = 0;
     for _ in 0..1000000 {
-        sum += adder.compute(10); // 隐式转换 i32 到 i64
+        sum += adder.compute(10) as i64; // 显式转换 i32 到 i64 以避免编译错误
     }
     println!("静态分发时间: {:?}", start.elapsed());
     println!("静态分发结果 (i32): {}", sum);
@@ -568,23 +568,23 @@ fn use_service(service: &mut dyn Service, input: &str) -> String {
 }
 
 // 2. 必要时才转移所有权
-struct ServiceManager {
-    services: Vec<Box<dyn Service>>,
+struct ServiceManager<'s> {
+    services: Vec<Box<dyn Service + 's>>,
 }
 
-impl ServiceManager {
+impl<'s> ServiceManager<'s> {
     // R: 提供只读访问
-    fn find_service(&self, index: usize) -> Option<&dyn Service> {
+    fn find_service(&self, index: usize) -> Option<&(dyn Service + 's)> {
         self.services.get(index).map(|s| s.as_ref())
     }
     
     // W: 提供可变访问
-    fn find_service_mut(&mut self, index: usize) -> Option<&mut dyn Service> {
+    fn find_service_mut(&mut self, index: usize) -> Option<&mut (dyn Service+'s)> {
         self.services.get_mut(index).map(|s| s.as_mut())
     }
     
     // O: 转移所有权（谨慎使用）
-    fn extract_service(&mut self, index: usize) -> Option<Box<dyn Service>> {
+    fn extract_service(&mut self, index: usize) -> Option<Box<dyn Service + 's>> {
         if index < self.services.len() {
             Some(self.services.remove(index))
         } else {
